@@ -21,15 +21,17 @@ class UserService {
   ) {}
 
   public async createUser(dto: CreateUserRequestDto): Promise<UserEntity> {
+    const { email, password } = dto
+
     console.log('[user-service] Creating user in database', {
-      email: dto.email,
+      email,
     })
 
-    await this.ensureEmailIsAvailable(dto.email)
+    await this.ensureEmailIsAvailable(email)
 
     const user = this.userRepository.create({
-      email: dto.email,
-      hashedPassword: await hash(dto.password, 10),
+      email,
+      hashedPassword: await hash(password, 10),
     })
 
     const savedUser = await this.userRepository.save(user)
@@ -69,17 +71,19 @@ class UserService {
     id: number,
     dto: UpdateUserRequestDto,
   ): Promise<UserEntity> {
+    const { email, password } = dto
+
     const user = await this.findUserEntityById(id)
 
     console.log('[user-service] Updating user', { id, dto })
 
-    if (dto.email && dto.email !== user.email) {
-      await this.ensureEmailIsAvailable(dto.email)
-      user.email = dto.email
+    if (email && email !== user.email) {
+      await this.ensureEmailIsAvailable(email)
+      user.email = email
     }
 
-    if (dto.password) {
-      user.hashedPassword = await hash(dto.password, 10)
+    if (password) {
+      user.hashedPassword = await hash(password, 10)
     }
 
     const updatedUser = await this.userRepository.save(user)

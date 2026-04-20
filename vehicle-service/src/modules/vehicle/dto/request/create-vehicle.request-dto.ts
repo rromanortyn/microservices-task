@@ -1,6 +1,5 @@
 import {
   IsInt,
-  IsOptional,
   IsString,
   Max,
   MaxLength,
@@ -25,10 +24,9 @@ class CreateVehicleRequestDto {
   @MinLength(1)
   public model!: string
 
-  @IsOptional()
   @IsInt()
   @Min(1)
-  public userId?: number
+  public userId!: number
 }
 
 export default CreateVehicleRequestDto

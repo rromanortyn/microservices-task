@@ -8,13 +8,13 @@ class VehicleEntity {
   public id!: number
 
   @Column({ type: 'integer' })
-  public year!: number
-
-  @Column({ type: 'varchar', length: MODEL_MAX_LENGTH })
-  public model!: string
+  public userId!: number
 
   @Column({ type: 'integer', nullable: true })
-  public userId!: number | null
+  public year?: number
+
+  @Column({ type: 'varchar', length: MODEL_MAX_LENGTH, nullable: true })
+  public model?: string
 }
 
 export default VehicleEntity

@@ -21,7 +21,7 @@ class VehicleService {
     const vehicle = this.vehicleRepository.create({
       year: dto.year,
       model: dto.model,
-      userId: dto.userId ?? null,
+      userId: dto.userId,
     })
 
     const savedVehicle = await this.vehicleRepository.save(vehicle)
