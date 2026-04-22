@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "up": "docker-compose --env-file=.env -f docker/docker-compose.yml up -d"
+    "up": "docker compose -f docker/docker-compose.yml --env-file .env up --build -d",
+    "dev": "concurrently \"npm run user-service\" \"npm run vehicle-service\"",
+    "user-service": "cd user-service && npm run start:dev",
+    "vehicle-service": "cd vehicle-service && npm run start:dev"
   },
   "keywords": [],
   "author": "",
