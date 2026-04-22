@@ -3,6 +3,10 @@ set -euo pipefail
 cd /home/ec2-user/microservices-task
 
 sudo dnf update -y
+
+sudo dnf install amazon-ssm-agent -y
+sudo systemctl enable --now amazon-ssm-agent
+
 sudo dnf install nodejs22 -y
 
 sudo dnf install docker -y
