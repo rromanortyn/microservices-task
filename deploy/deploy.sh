@@ -5,8 +5,8 @@ cd /home/ec2-user/microservices-task
 
 docker compose down || true
 
-touch .env
-chmod 666 .env
+sudo touch .env
+sudo chmod 666 .env
 
 aws secretsmanager get-secret-value --secret-id microservices-task-env --output text > .env
 
