@@ -15,17 +15,17 @@ sudo docker image prune -f
 echo "FIRST npm i"
 
 cd /home/ec2-user/microservices-task/user-service
-npm i
-npm run typeorm:run-migrations
+sudo npm i
+sudo npm run typeorm:run-migrations
 
 echo "SECOND npm i"
 
 cd /home/ec2-user/microservices-task/vehicle-service
-npm i
-npm run typeorm:run-migrations
+sudo npm i
+sudo npm run typeorm:run-migrations
 
 echo "THIRD npm i"
 
 cd /home/ec2-user/microservices-task
-npm i
-npm run dev
+sudo npm i
+sudo npm run dev
