@@ -46,7 +46,9 @@ async function bootstrap() {
   console.log(
     `[vehicle-service] RabbitMQ consumer is listening to ${userEventsQueue}`,
   )
-  console.log(`[vehicle-service] HTTP server is running on port ${port}`)
+
+  const url = app.getUrl()
+  console.log(`[vehicle-service] HTTP server is running on ${url}`)
 }
 
 void bootstrap()

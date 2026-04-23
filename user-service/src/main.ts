@@ -18,7 +18,8 @@ async function bootstrap() {
 
   await app.listen(port)
 
-  console.log(`[user-service] HTTP server is running on port ${port}`)
+  const url = app.getUrl()
+  console.log(`[user-service] HTTP server is running on ${url}`)
 }
 
 void bootstrap()
