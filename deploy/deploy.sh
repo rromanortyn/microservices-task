@@ -51,4 +51,3 @@ echo "THIRD npm i"
 
 cd /home/ec2-user/microservices-task
 sudo npm i
-sudo npm run dev
