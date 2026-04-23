@@ -47,8 +47,8 @@ aws secretsmanager get-secret-value --secret-id microservices-task-env/vehicle-s
 sudo npm i
 sudo npm run typeorm:run-migrations
 
-# echo "THIRD npm i"
+echo "THIRD npm i"
 
-# cd /home/ec2-user/microservices-task
-# sudo npm i
-# sudo npm run dev
+cd /home/ec2-user/microservices-task
+sudo npm i
+sudo npm run dev
