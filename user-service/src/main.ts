@@ -5,7 +5,8 @@ import AppModule from './modules/app/app.module'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
-  const port = Number(process.env.PORT ?? 4001)
+  // const port = Number(process.env.PORT ?? 4001)
+  const port = 0
 
   app.useGlobalPipes(
     new ValidationPipe({
