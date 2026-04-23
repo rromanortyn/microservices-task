@@ -28,6 +28,11 @@ sudo docker image prune -f
 echo "FIRST npm i"
 
 cd /home/ec2-user/microservices-task/user-service
+sudo touch .env
+sudo chmod 666 .env
+
+aws secretsmanager get-secret-value --secret-id microservices-task-env/user-service --query SecretString --output text > .env
+
 sudo npm i
 sudo npm run typeorm:run-migrations
 
