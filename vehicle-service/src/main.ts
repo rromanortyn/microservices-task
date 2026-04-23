@@ -14,7 +14,7 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService)
   
-  const port = Number(process.env.PORT ?? 3002)
+  const port = Number(process.env.PORT ?? 4002)
   const rabbitMqUrl = configService.getOrThrow<string>('RABBITMQ_URL')
   const userEventsQueue = configService.getOrThrow<string>('USER_EVENTS_QUEUE')
 
