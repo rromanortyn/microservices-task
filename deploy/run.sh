@@ -1,2 +1,2 @@
 cd /home/ec2-user/microservices-task
-sudo npm run dev
+sudo nohup npm run dev > /dev/null 2>&1 &
