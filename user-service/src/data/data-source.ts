@@ -6,6 +6,8 @@ import UserEntity from 'src/data/entities/user.entity'
 import envKeys from 'src/common/env-keys'
 import AddUserEntity1776340960443 from 'src/data/migrations/1776340960443-add-user-entity'
 
+console.log(process.cwd())
+
 dotenv.config({
   path: path.join(process.cwd(), 'user-service', `.env`),
 })
