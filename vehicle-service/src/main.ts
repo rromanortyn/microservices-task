@@ -47,7 +47,7 @@ async function bootstrap() {
     `[vehicle-service] RabbitMQ consumer is listening to ${userEventsQueue}`,
   )
 
-  const url = app.getUrl()
+  const url = await app.getUrl()
   console.log(`[vehicle-service] HTTP server is running on ${url}`)
 }
 

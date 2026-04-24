@@ -6,7 +6,6 @@ const configModuleOptions: ConfigModuleOptions = {
   envFilePath: path.join(
     process.cwd(),
     'vehicle-service',
-    'dist',
     '.env',
   ),
 } as const
