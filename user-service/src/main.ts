@@ -1,7 +1,7 @@
 import path from 'node:path'
 import fs from 'node:fs'
 
-import { ValidationPipe } from '@nestjs/common'
+import { Logger, ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 
 import AppModule from './modules/app/app.module'
@@ -9,7 +9,8 @@ import AppModule from './modules/app/app.module'
 async function bootstrap() {
   const envPath = path.join(process.cwd(), 'user-service', '.env')
   const env = fs.readFileSync(envPath, 'utf-8')
-  console.log('ENV:', env)
+  
+  Logger.log('ENV:', env)
 
   const app = await NestFactory.create(AppModule)
   // const port = Number(process.env.PORT ?? 4001)
@@ -26,7 +27,7 @@ async function bootstrap() {
   await app.listen(port)
 
   const url = await app.getUrl()
-  console.log(`[user-service] HTTP server is running on ${url}`)
+  Logger.log(`[user-service] HTTP server is running on ${url}`)
 }
 
 void bootstrap()
