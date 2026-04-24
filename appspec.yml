@@ -4,11 +4,15 @@ files:
   - source: /
     destination: /home/ec2-user/microservices-task
 hooks:
+  BeforeInstall:
+    - location: deploy/before-install.sh
+      timeout: 300
+      runas: ec2-user
   AfterInstall:
-    - location: deploy/deploy.sh
+    - location: deploy/after-install.sh
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: deploy/run.sh
+    - location: deploy/application-start.sh
       timeout: 300
       runas: ec2-user
