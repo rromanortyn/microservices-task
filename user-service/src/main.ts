@@ -12,22 +12,22 @@ async function bootstrap() {
   
   Logger.log('ENV:', env)
 
-  const app = await NestFactory.create(AppModule)
-  // const port = Number(process.env.PORT ?? 4001)
-  const port = 0
+  // const app = await NestFactory.create(AppModule)
+  // // const port = Number(process.env.PORT ?? 4001)
+  // const port = 0
 
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      forbidNonWhitelisted: true,
-      transform: true,
-    }),
-  )
+  // app.useGlobalPipes(
+  //   new ValidationPipe({
+  //     whitelist: true,
+  //     forbidNonWhitelisted: true,
+  //     transform: true,
+  //   }),
+  // )
 
-  await app.listen(port)
+  // await app.listen(port)
 
-  const url = await app.getUrl()
-  Logger.log(`[user-service] HTTP server is running on ${url}`)
+  // const url = await app.getUrl()
+  // Logger.log(`[user-service] HTTP server is running on ${url}`)
 }
 
 void bootstrap()
