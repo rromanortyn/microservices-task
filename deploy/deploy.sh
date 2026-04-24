@@ -28,18 +28,13 @@ aws secretsmanager get-secret-value --secret-id microservices-task-env --query S
 sudo docker compose --env-file=.env -f docker/docker-compose.yml up -d
 sudo docker image prune -f
 
-echo "FIRST npm i"
-
 cd /home/ec2-user/microservices-task/user-service
 sudo touch .env
 sudo chmod 666 .env
 
 aws secretsmanager get-secret-value --secret-id microservices-task-env/user-service --query SecretString --output text > .env
 
-sudo npm i
 sudo npm run typeorm:run-migrations
-
-echo "SECOND npm i"
 
 cd /home/ec2-user/microservices-task/vehicle-service
 sudo touch .env
@@ -47,10 +42,10 @@ sudo chmod 666 .env
 
 aws secretsmanager get-secret-value --secret-id microservices-task-env/vehicle-service --query SecretString --output text > .env
 
-sudo npm i
 sudo npm run typeorm:run-migrations
-
-echo "THIRD npm i"
 
 cd /home/ec2-user/microservices-task
 sudo npm i
+
+cd /home/ec2-user
+sudo npm i pm2@latest -g

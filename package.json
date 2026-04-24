@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "up": "docker compose -f docker/docker-compose.yml --env-file .env up --build -d",
-    "dev": "concurrently \"npm run user-service\" \"npm run vehicle-service\"",
+    "dev": "concurrently \"pm2 start user-service/dist/main.js\" \"pm2 start vehicle-service/dist/main.js\"",
     "user-service": "cd user-service && npm run start:dev",
     "vehicle-service": "cd vehicle-service && npm run start:dev"
   },

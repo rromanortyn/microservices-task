@@ -4,6 +4,10 @@ files:
   - source: /
     destination: /home/ec2-user/microservices-task
 hooks:
+  Build:
+    - location: deploy/build.sh
+      timeout: 300
+      runas: ec2-user
   AfterInstall:
     - location: deploy/deploy.sh
       timeout: 300
