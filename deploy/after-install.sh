@@ -14,22 +14,26 @@ cd /home/ec2-user/microservices-task/user-service
 sudo npm i
 sudo npm run build
 
+cd /home/ec2-user/microservices-task/user-service/dist
 sudo touch .env
 sudo chmod 666 .env
 
 aws secretsmanager get-secret-value --secret-id microservices-task-env/user-service --query SecretString --output text > .env
 
+cd /home/ec2-user/microservices-task/user-service
 sudo npm run typeorm:run-migrations
 
 cd /home/ec2-user/microservices-task/vehicle-service
 sudo npm i
 sudo npm run build
 
+cd /home/ec2-user/microservices-task/vehicle-service/dist
 sudo touch .env
 sudo chmod 666 .env
 
 aws secretsmanager get-secret-value --secret-id microservices-task-env/vehicle-service --query SecretString --output text > .env
 
+cd /home/ec2-user/microservices-task/vehicle-service
 sudo npm run typeorm:run-migrations
 
 cd /home/ec2-user/microservices-task

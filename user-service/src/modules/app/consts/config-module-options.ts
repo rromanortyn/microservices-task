@@ -3,7 +3,12 @@ import { ConfigModuleOptions } from '@nestjs/config'
 
 const configModuleOptions: ConfigModuleOptions = {
   isGlobal: true,
-  envFilePath: path.join('user-service', '.env'),
+  envFilePath: path.join(
+    process.cwd(),
+    'user-service',
+    'dist',
+    '.env',
+  ),
 } as const
 
 export default configModuleOptions
