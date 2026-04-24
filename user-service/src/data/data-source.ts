@@ -9,7 +9,7 @@ import AddUserEntity1776340960443 from 'src/data/migrations/1776340960443-add-us
 console.log(process.cwd())
 
 dotenv.config({
-  path: path.join(process.cwd(), 'user-service', `.env`),
+  path: path.join(process.cwd(), `.env`),
 })
 
 const dataSource = new DataSource({
