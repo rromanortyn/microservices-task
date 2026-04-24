@@ -34,6 +34,3 @@ sudo npm run typeorm:run-migrations
 
 cd /home/ec2-user/microservices-task
 sudo npm i
-
-cd /home/ec2-user
-sudo npm i pm2@latest -g
