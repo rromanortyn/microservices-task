@@ -3,7 +3,7 @@ set -euo pipefail
 
 cd /home/ec2-user/microservices-task
 
-user_service_status=$(pm2 jlist | jq -r '.[] | select(.name == "user-service") | .pm2_env.status')
+user_service_status=$(sudo -E pm2 jlist | jq -r '[.[] | select(.name == "user-service") | .pm2_env.status] | last')
 
 if [ "$user_service_status" = "online" ]; then
     user_service_is_online=true
