@@ -15,5 +15,5 @@ sudo dnf install nodejs22 -y
 sudo dnf install docker -y
 sudo systemctl enable --now docker
 
-sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-$(uname -m) -o /usr/libexec/docker/cli-plugins/docker-compose
+sudo curl -SL https://github.com/docker/compose/releases/tag/v5.1.2/download/docker-compose-linux-$(uname -m) -o /usr/libexec/docker/cli-plugins/docker-compose
 sudo chmod +x /usr/libexec/docker/cli-plugins/docker-compose
