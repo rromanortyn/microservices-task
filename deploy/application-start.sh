@@ -6,23 +6,25 @@ cd /home/ec2-user/microservices-task
 user_service_status=$(sudo -E pm2 jlist | jq -r 'first(.[] | select(.name == "user-service")) | .pm2_env.status')
 
 if [ "$user_service_status" = "online" ]; then
-    user_service_is_online=true
+    echo "User service is online"
+elif [ "$user_service_status" = "stopped" ]; then
+    echo "User service is stopped"
 else
-    user_service_is_online=false
+    echo "User service status is not created yet"
 fi
 
 echo "User service status: $user_service_status"
-echo "User service is online: $user_service_is_online"
 
 vehicle_service_status=$(sudo -E pm2 jlist | jq -r 'first(.[] | select(.name == "vehicle-service")) | .pm2_env.status')
 
 if [ "$vehicle_service_status" = "online" ]; then
-    vehicle_service_is_online=true
+    echo "Vehicle service is online"
+elif [ "$vehicle_service_status" = "stopped" ]; then
+    echo "Vehicle service is stopped"
 else
-    vehicle_service_is_online=false
+    echo "Vehicle service status is not created yet"
 fi
 
 echo "Vehicle service status: $vehicle_service_status"
-echo "Vehicle service is online: $vehicle_service_is_online"
 
 # sudo npm run dev
