@@ -10,10 +10,11 @@ if [ "$user_service_status" = "online" ]; then
 elif [ "$user_service_status" = "stopped" ]; then
     echo "User service is stopped"
 else
-    echo "User service status is not created yet"
-fi
+    echo "User service is not created yet"
 
-echo "User service status: $user_service_status"
+    # start user service
+    sudo -E pm2 start --name user-service user-service/dist/main.js
+fi
 
 vehicle_service_status=$(sudo -E pm2 jlist | jq -r 'first(.[] | select(.name == "vehicle-service")) | .pm2_env.status')
 
@@ -22,9 +23,11 @@ if [ "$vehicle_service_status" = "online" ]; then
 elif [ "$vehicle_service_status" = "stopped" ]; then
     echo "Vehicle service is stopped"
 else
-    echo "Vehicle service status is not created yet"
+    echo "Vehicle service is not created yet"
+
+    # start vehicle service
+    sudo -E pm2 start --name vehicle-service vehicle-service/dist/main.js
 fi
 
-echo "Vehicle service status: $vehicle_service_status"
 
 # sudo npm run dev
