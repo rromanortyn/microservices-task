@@ -54,36 +54,36 @@ export async function loadDashboardSnapshot() {
 
 export const usersApi = {
   async create(payload: UserPayload) {
-    return post<User, UserPayload>('/api/users', payload)
+    return post<User, UserPayload>('/users', payload)
   },
   async getById(id: number) {
-    return get<User>(`/api/users/${id}`)
+    return get<User>(`/users/${id}`)
   },
   async list() {
-    return get<User[]>('/api/users')
+    return get<User[]>('/users')
   },
   async remove(id: number) {
-    return remove(`/api/users/${id}`)
+    return remove(`/users/${id}`)
   },
   async update(id: number, payload: UserPayload) {
-    return put<User, UserPayload>(`/api/users/${id}`, payload)
+    return put<User, UserPayload>(`/users/${id}`, payload)
   },
 }
 
 export const vehiclesApi = {
   async create(payload: VehiclePayload) {
-    return post<Vehicle, VehiclePayload>('/api/vehicles', payload)
+    return post<Vehicle, VehiclePayload>('/vehicles', payload)
   },
   async getById(id: number) {
-    return get<Vehicle>(`/api/vehicles/${id}`)
+    return get<Vehicle>(`/vehicles/${id}`)
   },
   async list() {
-    return get<Vehicle[]>('/api/vehicles')
+    return get<Vehicle[]>('/vehicles')
   },
   async remove(id: number) {
-    return remove(`/api/vehicles/${id}`)
+    return remove(`/vehicles/${id}`)
   },
   async update(id: number, payload: VehiclePayload) {
-    return put<Vehicle, VehiclePayload>(`/api/vehicles/${id}`, payload)
+    return put<Vehicle, VehiclePayload>(`/vehicles/${id}`, payload)
   },
 }

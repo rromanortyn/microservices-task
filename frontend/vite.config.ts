@@ -9,15 +9,13 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
     proxy: {
-      '/api/users': {
-        target: 'http://127.0.0.1:3001',
+      '/users': {
+        target: 'http://127.0.0.1:9001',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
       },
-      '/api/vehicles': {
-        target: 'http://127.0.0.1:3002',
+      '/vehicles': {
+        target: 'http://127.0.0.1:9002',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },

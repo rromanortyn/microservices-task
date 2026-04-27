@@ -34,3 +34,6 @@ sudo npm run typeorm:run-migrations
 
 cd /home/ec2-user/microservices-task
 sudo npm i
+
+cd /home/ec2-user/microservices-task/frontend
+sudo npm i
