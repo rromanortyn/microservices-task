@@ -1,8 +1,8 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom'
 
-import AppShell from '../components/app-shell'
-import UsersPage from '../features/users/users-page'
-import VehiclesPage from '../features/vehicles/vehicles-page'
+import AppShell from './components/app-shell'
+import UsersPage from './features/users/users-page'
+import VehiclesPage from './features/vehicles/vehicles-page'
 
 const router = createBrowserRouter([
   {
