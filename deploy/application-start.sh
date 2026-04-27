@@ -7,8 +7,14 @@ user_service_status=$(sudo -E pm2 jlist | jq -r 'first(.[] | select(.name == "us
 
 if [ "$user_service_status" = "online" ]; then
     echo "User service is online"
+
+    sudo -E pm2 stop user-service
+    sudo -E pm2 restart user-service
+
 elif [ "$user_service_status" = "stopped" ]; then
     echo "User service is stopped"
+
+    sudo -E pm2 restart user-service
 else
     echo "User service is not created yet"
 
@@ -20,8 +26,14 @@ vehicle_service_status=$(sudo -E pm2 jlist | jq -r 'first(.[] | select(.name == 
 
 if [ "$vehicle_service_status" = "online" ]; then
     echo "Vehicle service is online"
+
+    sudo -E pm2 stop vehicle-service
+    sudo -E pm2 restart vehicle-service
+
 elif [ "$vehicle_service_status" = "stopped" ]; then
     echo "Vehicle service is stopped"
+
+    sudo -E pm2 restart vehicle-service
 else
     echo "Vehicle service is not created yet"
 
