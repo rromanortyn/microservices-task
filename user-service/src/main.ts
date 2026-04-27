@@ -14,7 +14,7 @@ async function bootstrap() {
   console.log('ENV:', env)
   const app = await NestFactory.create(AppModule)
   // const port = Number(process.env.PORT ?? 4001)
-  const port = 0
+  const port = 9001
 
   app.useGlobalPipes(
     new ValidationPipe({
