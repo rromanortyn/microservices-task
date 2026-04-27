@@ -43,6 +43,8 @@ fi
 
 frontend_status=$(sudo -E pm2 jlist | jq -r 'first(.[] | select(.name == "frontend")) | .pm2_env.status')
 
+cd /home/ec2-user/microservices-task/frontend
+
 if [ "$frontend_status" = "online" ]; then
     echo "Frontend is online"
 
